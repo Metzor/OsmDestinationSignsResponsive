@@ -34,7 +34,7 @@ Select one of the marked ways on the map to show the corresponding destination s
 <br>The code is available on <a href="https://github.com/mueschel/OsmDestinationSigns">Github</a>.
 <div class="config">
 <h3>Configuration</h3>
-<form action="" onsubmit="getsign(document.getElementsByName('wayid')[0].value); return false;">
+<form onsubmit="getsign(document.getElementsByName('wayid')[0].value); return false;">
 <!--   Style&nbsp;<select name="style"><option value="lanes">Lanes Based<option value="direction">Direction Based</select><br> -->
   <div>
   <label for="direction">Direction:</label>
@@ -53,9 +53,11 @@ Select one of the marked ways on the map to show the corresponding destination s
     <div><a id="permanode" href="">Link to this way</a></div>
 </form>
 </div>
+<div id="tagSection">
 <div id="tagsHeader"></div>
 <div id="tagsOther"></div>
 <div id="tagsDestination"></div>
+</div>
 </div>
 
 <div id="container">Sign&nbsp;</div>
@@ -115,6 +117,7 @@ function loaddata_i(mydata) {
   }
   // Tags anzeigen
   function displayTags(tags, containerId) {
+    document.getElementById(containerId).innerHTML = "";
     for (var key in tags) {
         var str = tags[key];
         if (str.indexOf('|') != -1) {

@@ -45,9 +45,18 @@ padding: 1em;
 z-index: 10;
 }
 
-div.config form div{
+div.config form div {
 display : inline-block;
 }
+div#tagSection { 
+display: flex; 
+flex-direction: column; 
+width: 100%;
+position: relative;
+}
+div#tagsHeader { order: 1; }
+div#tagsDestination { order: 2; }
+div#tagsOther { order: 3; }
 
 div#tagsOther, div#tagsDestination {
 display: block;
@@ -124,6 +133,12 @@ column-count: 2;
 column-gap: 1em;
 word-wrap: break-word;
   }
+div#tagsDestination { 
+order: 3; 
+}
+div#tagsOther { 
+order: 2; 
+}
 }
 
 @media (max-width: 30em) {
